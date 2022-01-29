@@ -1,9 +1,9 @@
-import { config } from 'https://deno.land/x/dotenv/mod.ts'
+// import { config } from 'https://deno.land/x/dotenv/mod.ts'
 import { RouterContext } from 'https://deno.land/x/oak/mod.ts'
 
-const { DATA_API_KEY, APP_ID } = config()
+// const { DATA_API_KEY, APP_ID } = config()
 
-const BASE_URI = `https://data.mongodb-api.com/app/${APP_ID || Deno.env.get("APP_ID")}/endpoint/data/beta/action`
+const BASE_URI = `https://data.mongodb-api.com/app/${Deno.env.get("APP_ID")}/endpoint/data/beta/action`
 
 const DATA_SOURCE = "Cluster0"
 const DATABASE = "todo_db"
@@ -13,7 +13,7 @@ const options = {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json',
-        'api-key':  Deno.env.get("DATA_API_KEY") || DATA_API_KEY
+        'api-key':  Deno.env.get("DATA_API_KEY") || ''
     },
     body: ""
 }
